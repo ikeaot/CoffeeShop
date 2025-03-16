@@ -16,13 +16,13 @@ Each control has different interaction (OFC)
  = Author i // game background =
 You landed into an unknown coffee shop owned by Mimi (The Owner).
 YOU, without any memories of the past, became her only bartender.
-Complete drink orders each day and help Mimi's Comumunity Grow.     /// needs to add REPUTATION fr ;-;
+Complete drink orders each day and help Mimi's Comumunity Grow.     /// needs to add REPUTATION fr ;-; -- but im too busy
 
  = Author i // gameplay =
 Each drink will have a SPECIFIC amounts of ingredients. 
     // WRONG INGREDIENT > YOU'RE OUT //
 
-Dont worry, we have a tutorial for that (VALUES WILL BE UNTOUCHED)  /// forgot to add it :v | EDIT: done bruh
+Dont worry, we have a tutorial for that (VALUES WILL BE UNTOUCHED)
 In the First Day, you'll be given:
 - Coffee Beans (g): 20x
 - Water (Oz)      : 10x
@@ -51,8 +51,10 @@ You may encounter insufficient ingredients, for that you need to buy.
 - Milk (1 Oz)       : 3 coins
  Spend wisely.
     // INSUFFICIENT INGREDIENTS == UNABLE TO COMPLETE ORDERS //
+If one or more ingredients are less than -25 youre out!
+Dont forget to make profit too.. less than 50 coins you're also out.
 
  = Auhor i // EndNote =
-You can learn from the tutorial (RESET GAME) if you forgot.
+You can learn from the tutorial if you forgot.
     GOOD LUCK.
 
