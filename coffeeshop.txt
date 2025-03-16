@@ -1,0 +1,58 @@
+ = Author's i =
+TOTAL HOURS WASTED: 14+ HOURS 
+Date: (15 / 03 / 2025) - (16 / 03 / 2025)
+
+Simple GUIDE on How To Play 'MIMI'S COFFEE SHOP'
+You'll first be brought to a menu with 4.., actualy 5 types of control
+Each control has different interaction (OFC)
+/// NGL if this lits imma add hidden menus
+
+=== MIMI'S COFFEE SHOP ===
+1. Play (Day xx)            /// Play the game
+2. Recipe(s)                /// See the available recipes
+3. Grocery Shop             /// Buy ingredients
+4. Reset | Exit             /// Reset the game V Leave the game
+
+ = Author i // game background =
+You landed into an unknown coffee shop owned by Mimi (The Owner).
+YOU, without any memories of the past, became her only bartender.
+Complete drink orders each day and help Mimi's Comumunity Grow.     /// needs to add REPUTATION fr ;-;
+
+ = Author i // gameplay =
+Each drink will have a SPECIFIC amounts of ingredients. 
+    // WRONG INGREDIENT > YOU'RE OUT //
+
+Dont worry, we have a tutorial for that (VALUES WILL BE UNTOUCHED)  /// forgot to add it :v | EDIT: done bruh
+In the First Day, you'll be given:
+- Coffee Beans (g): 20x
+- Water (Oz)      : 10x
+- Milk (Oz)       : 15x
+Credits / Coins   : 5 Coins
+
+There are 3 types of drinks:
+// Each drink gives different rewards corresponding to the ingredients //
+- Espresso  (8 creds): 3x Coffee Bean
+- Americano (7 creds): 2x Coffee Bean, 1x Water
+- Latte    (10 creds): 1x Coffee Bean, 2x Milk
+
+On day-1, you will need to complete 5 orders.
+TYPE in the right amount of ingredients to complete
+ w/ (0) == No Ingredient
+Each 2 days after day-1 will increase the amount of orders 
+ you need to COMPLETE by +1
+
+You may encounter insufficient ingredients, for that you need to buy.
+ Go back to the menu -> TYPE: 3, to the Grocery Shop
+
+// Each ingredient needs specific amount of coins //
+ You will get coins from completing orders.
+- Coffee Bean (1 gr): 2 coins
+- Water (1 Oz)      : 1 coin
+- Milk (1 Oz)       : 3 coins
+ Spend wisely.
+    // INSUFFICIENT INGREDIENTS == UNABLE TO COMPLETE ORDERS //
+
+ = Auhor i // EndNote =
+You can learn from the tutorial (RESET GAME) if you forgot.
+    GOOD LUCK.
+
