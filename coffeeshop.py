@@ -10,12 +10,14 @@ if day == 2:
     water = 10
     milk = 15
     coins = 5
-    
+
+# MIMI'S DELAYED MESSAGES
 def msg(string):
     print(string)
     t.sleep(2.5)
 
 def tutorial():
+    # NEEDED VARIABLE
     global coffeebean
     global water
     global milk
@@ -24,7 +26,8 @@ def tutorial():
     msg("(😃) Mimi: Welcome to Mimi's Tutorial!")
     msg("(😆) Mimi: Here you can try make a drink yourself!")
     msg("(😁) Mimi: Let's Start! \n")
-    
+
+    # START THE LOOPED TUTORIAL
     while True:
         td = ["Timeless Mimipresso", "Hawkkt Americawrr", "Magical Milky Mimi"]
         td_auto = rd.choice(td)
@@ -34,6 +37,7 @@ def tutorial():
         print("Hint: Type (Y) \n")
         t.sleep(1)
 
+        # ORDER TRIAL
         while True:
             ans_t = input("(Y/N): ").lower()
 
@@ -81,7 +85,8 @@ def tutorial():
                 msg("(😐) Mimi: That's Not How You Respond to Mimi's Customer..")
             else:
                 msg("(🤔) Mimi: Huh? It's not on Mimi's Dicitonary..")
-            
+
+        # CONPLETION
         msg("(😆) Mimi: You've completed your order!")
         msg("(😉) Mimi: Do you want to try again?")
         t.sleep(1)
@@ -96,11 +101,10 @@ def tutorial():
                 break
             else:
                 msg("(😖) Mimi: Mimi Really Doens't Understand!")
-        
         break
 
 def gameplay():
-
+    # VARIABLE
     global day
     global attempts
     global coffeebean
@@ -109,7 +113,7 @@ def gameplay():
     global coins
     global exit
     
-    #INTRO
+    # INTRO
     if day == 1:
         msg("(😄) Mimi: Let's Get You Started Bartender!")
         msg("(🤔) Mimi: Well You Need to Remember Mimi's Recipe Though..")
@@ -140,7 +144,8 @@ def gameplay():
     else:
         msg(f"(😄) Mimi: Alright it's Day-{day}! Just Do It As You Did on Day-1.")
         msg("(😃) Mimi: Each order Will Have a Limit Of 30 Second(s).")
-    
+
+    # OPTION TO PLAY THE TUTORIAL
     msg("(🤔) Mimi: Oh yeah! Do you want Mimi To Explain?")
     
     while True:
@@ -157,7 +162,7 @@ def gameplay():
 
     msg("(😆) Mimi: Mimi Wishes You Good Luck! \n")
 
-    # QUESTS LOOP
+    # ORDERS LOOP
     rn = 5 + (1 if day > 1 and day % 2 != 0 else 0)
     round = rn
 
@@ -173,7 +178,8 @@ def gameplay():
         print(f"Remaining Order(s) Today: {round} \n")
         t.sleep(3)
 
-        if coffeebean <= -25 or water <= -25 or milk <= -25 or coins <= -50 :
+        if coffeebean <= -25 or water <= -25 or milk <= -25 or coins <= -50:
+            # GAME OVER
             attempts += 1
             msg("GAME OVER!")
             print(f"Total Attempts: {attempts} \n")
@@ -193,7 +199,8 @@ def gameplay():
                     print("Try Again.")      
 
         elif coffeebean <= 0 or water <= 0 or milk <= 0:
-            msg("(😰) Mimi: Oh No! You're Running Out Of ingredients.")
+            # BUY INSUFFICIENT INGREDIENTS
+            msg("(😰) Mimi: Oh No! You're Ran Out Of ingredients.")
             msg("(🤕) Mimi: Let's Buy the missing Ingredient first..")
             for i in range(2):
                 if coffeebean <= 0:
@@ -206,7 +213,8 @@ def gameplay():
                     print("Missing Ingredient: Milk")
                     t.sleep(1)
                 break
-            
+
+            # OPTION TO THE GROCERY SHOP
             while True:
                 ans_g4 = input("To Grocery Shop? (Y/N) ")
 
@@ -221,25 +229,27 @@ def gameplay():
                     msg("(😐) Mimi: Mimi Doesn't Understand.")
                 return
 
+        # ORDERS
         msg(f"Customer: Can I order {qnt}x {auto_order}?")
         t.sleep(1)
 
         ans_g1 = input("(Y/N): ").lower()
 
         if ans_g1 == 'y':
-            st = t.monotonic()  # Start the timer
-            dr = 30  # Set the duration for the countdown (30 seconds)
+            st = t.monotonic() # START
+            dr = 30  # COUNTDOWN DURATION (30 seconds)
 
             while True:
+                # COUNTDOWN STARTS
                 current_t = t.monotonic()
                 elapsed_t = current_t - st
 
                 if elapsed_t >= dr:
                     print("Time's Up!")
-                    coins -= 2  # Penalty for time out
+                    coins -= 2  # TIMEOUT PENALTY
                     break
                 
-                # Get user input for ingredients
+                # INPUT INGREDIENTS
                 try:
                     x = int(input("Coffee Bean(s): "))
                     y = int(input("Water: "))
@@ -251,7 +261,7 @@ def gameplay():
                     print("Mimi Left a Message To Use Valid Numbers.")
                     continue
 
-                # Check if the order is correct
+                # CHECK
                 if auto_order == "Timeless Mimipresso" and x == (3 * qnt) and y == 0 and z == 0:
                     coins += (8 * qnt)
                     msg("Customer: That's My Drink! Thanks!")
@@ -266,23 +276,25 @@ def gameplay():
                     break
                 else:
                     msg("Customer: That's Not My Order!!")
-                    coins -= (qnt)  # Penalty for incorrect order
+                    coins -= (qnt)  # INCORRECT ORDER PENALTY
                     break
 
         elif ans_g1 == 'n':
             msg("Customer: You're Mean! \n")
-            coins -= 1  # Penalty for declining the order
+            coins -= 1  # DECLINING PENALTY
 
         else:
             msg("Customer: What.. \n")
-            coins -= 1  # Penalty for invalid response
+            coins -= 1  # INVALID RESPONSE PENALTY
 
+        # ROUND ENDED
         round -= 1
         print(f"Total Coins: {coins}")
         t.sleep(3)
         continue        
 
-    day += 1  # Move to the next day
+    # DAY ENDED
+    day += 1
     print("It's The End Of The Day! \n")
     print("= REMAINING INGREDIENTS =")
     print(f"{coffeebean}x Coffee Bean (g)")
@@ -290,6 +302,7 @@ def gameplay():
     print(f"{milk}x Milk (Oz) \n")
     print(f"Total Coins Today: {coins}")
 
+    # CONTINUE
     while True:
         ans_g3 = input("Continue? (Y/N): ").lower()
 
@@ -302,8 +315,8 @@ def gameplay():
         else:
             print("(😒) Mimi: Mimi Doesn't Understand.")
 
-def recipe(): # WORKED EZ BRUH, 2nd edit: EZZZZ YEAAAAAA
-    
+def recipe():
+    # SELF EXPLANATORY
     while True:
         print("Mimi's Coffee Shop Recipes:")
         print("Timeless Mimipresso (Espresso): 3x Coffee Bean(s)")
@@ -320,12 +333,13 @@ def recipe(): # WORKED EZ BRUH, 2nd edit: EZZZZ YEAAAAAA
 
     
 def shop(): # CLEAR
-    
+    # VARIABLE
     global coins
     global coffeebean
     global water
     global milk
 
+    # MENU
     while True:
         print("== Mimi's Grocery Shop ==")
         print(f"1. Coffee Bean(s)  // You Have {coffeebean} g.")
@@ -336,7 +350,7 @@ def shop(): # CLEAR
 
         ans_s = input("Choose Wisely (1-4): ")
 
-        # qn =  input("How Much? ")
+        # INGREDIENT QUANTITY
         if ans_s == '1':
             qn =  int(input("How Much? "))
             pr = 2 * qn
@@ -356,11 +370,12 @@ def shop(): # CLEAR
             print("Mimi System Error!")
             shop()
 
+        # PAYMENT
         while True:
             ans_s2 = input("Proceed With The Payment (Y/N): ").lower()
 
             if ans_s2 == 'y':
-                if coins >= pr:
+                if coins >= pr: # SUFFICIENT COINS
                     coins = coins - pr
                     if ans_s == '1':
                         coffeebean +qn
@@ -368,15 +383,13 @@ def shop(): # CLEAR
                         water +qn
                     else:
                         milk +qn
-
                     print("Payment Has Succeded!")
                     print(f"Total Coins: {coins}")
                     break
-                elif coins < pr:
+                else: # INSUFFICIENT COINS
                     print("Insufficient Coins! Work a Day or Two!")
                     break
-                else:
-                    print("Mimi System Error!")
+                    
             elif ans_s2 == 'n':
                 print("Payment Canceled!")
                 break
@@ -388,9 +401,11 @@ def shop(): # CLEAR
         t.sleep(1)
 
     
-def byebye_menu(): # ITS WORKING BROOOOOOOOOOO
+def byebye_menu(): 
+    # VARIABLE
     global attempts
 
+    # EXIT MENU
     while True:
         print(f"Total Attempts: {attempts}")
         msg("(🥹) Mimi: Are You Sure to Leave Mimi's Coffee Shop?")
@@ -405,20 +420,23 @@ def byebye_menu(): # ITS WORKING BROOOOOOOOOOO
         else:
             msg("(🤨) Mimi: Mimi Doesn't Understand! \n")
 
-def menu(): # EXIT (4) WORKED EYAAAKKKK
+def menu():
+    # VARIABLE
     global day
     global attempts
     global exit
 
     while True:
+        # MENU APPEARANCE
         print("== Mimi's Coffee Shop ==")
-        print(f"1. Play - (Day {day})") # XX : VARIABLE LATER
+        print(f"1. Play - (Day {day})")
         print("2. Mimi's Recipe(s)")
         print("3. Grocery Shop")
         print("4. Reset | Exit (.1/.2)")
         
         ans = input("Choose Wisely (1-4): ")
 
+        # SELF EXPLANATORY
         if ans == '1':
             gameplay()
         elif ans == '2':
@@ -439,5 +457,6 @@ def menu(): # EXIT (4) WORKED EYAAAKKKK
         else:
             msg("(😤) Mimi: Mimi Doesn't Understand! \n")
     
+# RETURN TO MENU
 if __name__ == "__main__":
     menu()
