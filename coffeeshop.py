@@ -32,35 +32,37 @@ def tutorial():
         td = ["Timeless Mimipresso", "Hawkkt Americawrr", "Magical Milky Mimi"]
         td_auto = rd.choice(td)
 
-        msg(f"(🥸) Mimi: I want a {td_auto}?")
+
+        # ORDER TRIAL
+        msg(f"(🥸) Mimi: I want a {td_auto}!")
         msg(f"(😉) Mimi: If Mimi's Customer says this, you should take it!")
         print("Hint: Type (Y) \n")
         t.sleep(1)
 
+        ans_t = input("(Y/N): ").lower()
+
         # ORDER TRIAL
-        while True:
-            ans_t = input("(Y/N): ").lower()
-
-            if ans_t == 'y':
-                if td_auto == "Timeless Mimipresso":
-                    msg(f"(😋) Mimi: Now, to make a {td_auto}, you need to add..")
-                    msg("(😆) Mimi: 3 grams of Coffee Beans")
-                    msg("(😄) Mimi: With no water")
-                    msg("(😉) Mimi: And no milk!")
-                    msg("(😁) Mimi: Try it!")
-                elif td_auto == "Hawkkt Americawrr":
-                    msg(f"(😋) Mimi: Now, to make a {td_auto}, you need to add..")
-                    msg("(😆) Mimi: 2 grams of Coffee Beans")
-                    msg("(😄) Mimi: With an Oz of water")
-                    msg("(😉) Mimi: And no milk!")
-                    msg("(😁) Mimi: Try it!")
-                else:
-                    msg(f"(😋) Mimi: Now, to make a {td_auto}, you need to add..")
-                    msg("(😆) Mimi: a grams of Coffee Beans")
-                    msg("(😄) Mimi: With no water")
-                    msg("(😉) Mimi: And 2 Oz of milk!")
-                    msg("(😁) Mimi: Try it!")
-
+        if ans_t == 'y':
+            if td_auto == "Timeless Mimipresso":
+                msg(f"(😋) Mimi: Now, to make a {td_auto}, you need to add..")
+                msg("(😆) Mimi: 3 grams of Coffee Beans")
+                msg("(😄) Mimi: With no water")
+                msg("(😉) Mimi: And no milk!")
+                msg("(😁) Mimi: Try it!")
+            elif td_auto == "Hawkkt Americawrr":
+                msg(f"(😋) Mimi: Now, to make a {td_auto}, you need to add..")
+                msg("(😆) Mimi: 2 grams of Coffee Beans")
+                msg("(😄) Mimi: With an Oz of water")
+                msg("(😉) Mimi: And no milk!")
+                msg("(😁) Mimi: Try it!")
+            else:
+                msg(f"(😋) Mimi: Now, to make a {td_auto}, you need to add..")
+                msg("(😆) Mimi: a gram of Coffee Beans")
+                msg("(😄) Mimi: With no water")
+                msg("(😉) Mimi: And 2 Oz of milk!")
+                msg("(😁) Mimi: Try it!")
+            
+            while True:
                 try:
                     p = int(input("Coffee Bean(s): "))
                     q = int(input("Water: "))
@@ -69,39 +71,41 @@ def tutorial():
                     msg("(🫢) Mimi: Mimi Forgot to Mention That You Need Valid Numbers!")
                     msg("(😰) Mimi: Mimi Really Need To Leave a Note")
                     continue
-
-                if td_auto == " Timeless Mimipresso" and p == 3 and q == 0 and r == 0:
+        
+                if td_auto == "Timeless Mimipresso" and p == 3 and q == 0 and r == 0:
                     msg("(😆) Mimi: You're a Natural!")
                     break
                 elif td_auto == "Hawkkt Americawrr" and p == 2 and q == 1 and r == 0:
-                    msg("(😋) Mimi: That's THe Spirit!")
+                    msg("(😋) Mimi: That's The Spirit!")
                     break
                 elif td_auto == "Magical Milky Mimi" and p == 1 and q == 0 and r == 2:
-                    msg("(😃) Mii: You're Getting a Hang of It!")
+                    msg("(😃) Mimi: You're Getting a Hang of It!")
                     break
                 else:
-                    msg("(🤨) MImi: That's not quite right.. Try Again!")
-            elif ans_t == 'n':
-                msg("(😐) Mimi: That's Not How You Respond to Mimi's Customer..")
-            else:
-                msg("(🤔) Mimi: Huh? It's not on Mimi's Dicitonary..")
+                    msg("(🤨) Mimi: That's not quite right.. Try Again!")
+                    continue
+        elif ans_t == 'n':
+            msg("(😐) Mimi: That's Not How You Respond to Mimi's Customer..")
+        else:
+            msg("(🤔) Mimi: Huh? It's not on Mimi's Dicitonary..")
 
         # CONPLETION
         msg("(😆) Mimi: You've completed your order!")
-        msg("(😉) Mimi: Do you want to try again?")
-        t.sleep(1)
+        
         
         while True:
+            msg("(😉) Mimi: Do you want to try again?")
+            t.sleep(1)
             ans_t2 = input("(Y/N): ").lower()
 
             if ans_t2 == 'y':
                 msg("(🥸) Mimi: Okay! Mimi's Ready!")
-            elif ans_t2 == 'n':
-                msg("(😄) Mimi: Okay! Goodluck on Your Work Day!")
                 break
+            elif ans_t2 == 'n':
+                msg("(😄) Mimi: Okay!")
+                return
             else:
                 msg("(😖) Mimi: Mimi Really Doens't Understand!")
-        break
 
 def gameplay():
     # VARIABLE
@@ -142,7 +146,7 @@ def gameplay():
                 msg("(😒) Mimi: Give Mimi A Valid Response..")
         
     else:
-        msg(f"(😄) Mimi: Alright it's Day-{day}! Just Do It As You Did on Day-1.")
+        msg(f"\n(😄) Mimi: Alright it's Day-{day}! Just Do It As You Did on Day-1.")
         msg("(😃) Mimi: Each order Will Have a Limit Of 30 Second(s).")
 
     # OPTION TO PLAY THE TUTORIAL
@@ -160,7 +164,7 @@ def gameplay():
         else:
             msg("(🤧) Mimi: Mimi swears Mimi Doesn't Understand!!")
 
-    msg("(😆) Mimi: Mimi Wishes You Good Luck! \n")
+    msg("(😆) Mimi: Mimi Wishes You Good Luck!")
 
     # ORDERS LOOP
     rn = 5 + (1 if day > 1 and day % 2 != 0 else 0)
@@ -171,7 +175,7 @@ def gameplay():
         qnt = rd.randint(1, 3)
         auto_order = rd.choice(drinks)
 
-        print("= INVENTORY =")
+        print("\n = INVENTORY =")
         print(f"{coffeebean}x Coffee Bean (g)")
         print(f"{water}x Water (Oz)")
         print(f"{milk}x Milk (Oz) \n")
@@ -181,7 +185,7 @@ def gameplay():
         if coffeebean <= -25 or water <= -25 or milk <= -25 or coins <= -50:
             # GAME OVER
             attempts += 1
-            msg("GAME OVER!")
+            msg("\n GAME OVER!")
             print(f"Total Attempts: {attempts} \n")
             print("= Death Menu =")
             print("1. Retry")
@@ -259,6 +263,9 @@ def gameplay():
                     milk -= z
                 except ValueError:
                     print("Mimi Left a Message To Use Valid Numbers.")
+                    x = 0 
+                    y = 0
+                    z = 0
                     continue
 
                 # CHECK
@@ -295,6 +302,7 @@ def gameplay():
 
     # DAY ENDED
     day += 1
+    t.sleep(2)
     print("It's The End Of The Day! \n")
     print("= REMAINING INGREDIENTS =")
     print(f"{coffeebean}x Coffee Bean (g)")
@@ -365,7 +373,7 @@ def shop(): # CLEAR
             print(f"That'll be {pr} coin(s))! \n")
         elif ans_s == '4':
             print("Okay! See you Later Bartender! \n")
-            break
+            return
         else:
             print("Mimi System Error!")
             shop()
