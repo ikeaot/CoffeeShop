@@ -1,11 +1,11 @@
 import random as rd
 import time as t
 
-day = 2
+day = 1
 attempts = 1
 
 # INVENTORY
-if day == 2:
+if day == 1:
     coffeebean = 25
     water = 10
     milk = 15
@@ -14,7 +14,7 @@ if day == 2:
 # MIMI'S DELAYED MESSAGES
 def msg(string):
     print(string)
-    t.sleep(2.5)
+    t.sleep(1)
 
 def tutorial():
     # NEEDED VARIABLE
@@ -120,6 +120,7 @@ def gameplay():
     # INTRO
     if day == 1:
         msg("(😄) Mimi: Let's Get You Started Bartender!")
+        msg("(😉) Mimi: You Only Need to Help Mimi Serve Customers!")
         msg("(🤔) Mimi: Well You Need to Remember Mimi's Recipe Though..")
         msg("(☺️) Mimi: Oh well! Surely You Can Remember It Right!? \n")
         print("Mimi's Coffee Shop Recipes:")
@@ -147,7 +148,7 @@ def gameplay():
         
     else:
         msg(f"\n(😄) Mimi: Alright it's Day-{day}! Just Do It As You Did on Day-1.")
-        msg("(😃) Mimi: Each order Will Have a Limit Of 30 Second(s).")
+        msg("(😃) Mimi: Each order Will Have a Limit Of 15 Second(s).")
 
     # OPTION TO PLAY THE TUTORIAL
     msg("(🤔) Mimi: Oh yeah! Do you want Mimi To Explain?")
@@ -241,50 +242,50 @@ def gameplay():
 
         if ans_g1 == 'y':
             st = t.monotonic() # START
-            dr = 30  # COUNTDOWN DURATION (30 seconds)
+            dr = 5  # COUNTDOWN DURATION (30 seconds)
 
             while True:
                 # COUNTDOWN STARTS
                 current_t = t.monotonic()
                 elapsed_t = current_t - st
 
-                if elapsed_t >= dr:
-                    print("Time's Up!")
-                    coins -= 2  # TIMEOUT PENALTY
+                # COUNTDOWN CHECK
+                if elapsed_t >= 15:
+                    msg("Time's up! The customer left!")
+                    coins -= 1  # TIMEOUT PENALTY
+                    x, y, z = 0, 0, 0
                     break
-                
+
                 # INPUT INGREDIENTS
                 try:
+                    print(f"Time remaining: {30 - int(elapsed_t)} seconds")
                     x = int(input("Coffee Bean(s): "))
                     y = int(input("Water: "))
                     z = int(input("Milk: "))
                     coffeebean -= x
                     water -= y
                     milk -= z
+                    break
                 except ValueError:
                     print("Mimi Left a Message To Use Valid Numbers.")
                     x = 0 
                     y = 0
                     z = 0
-                    continue
+                continue
 
-                # CHECK
-                if auto_order == "Timeless Mimipresso" and x == (3 * qnt) and y == 0 and z == 0:
-                    coins += (8 * qnt)
-                    msg("Customer: That's My Drink! Thanks!")
-                    break
-                elif auto_order == "Hawkkt Americawrr" and x == (2 * qnt) and y == qnt and z == 0:
-                    coins += (7 * qnt)
-                    msg("Customer: This is Magnificent!")
-                    break
-                elif auto_order == "Magical Milky Mimi" and x == qnt and y == 0 and z == (2 * qnt):
-                    coins += (10 * qnt)
-                    msg("Customer: Just The Right Amount!")
-                    break
-                else:
-                    msg("Customer: That's Not My Order!!")
-                    coins -= (qnt)  # INCORRECT ORDER PENALTY
-                    break
+            # CHECK
+            if auto_order == "Timeless Mimipresso" and x == (3 * qnt) and y == 0 and z == 0:
+                coins += (8 * qnt)
+                msg("Customer: That's My Drink! Thanks!")  
+            elif auto_order == "Hawkkt Americawrr" and x == (2 * qnt) and y == qnt and z == 0:
+                coins += (7 * qnt)
+                msg("Customer: This is Magnificent!")
+            elif auto_order == "Magical Milky Mimi" and x == qnt and y == 0 and z == (2 * qnt):
+                coins += (10 * qnt)
+                msg("Customer: Just The Right Amount!")
+            else:
+                msg("Customer: That's Not My Order!!")
+                coins -= (qnt)  # INCORRECT ORDER PENALTY
 
         elif ans_g1 == 'n':
             msg("Customer: You're Mean! \n")
@@ -303,7 +304,7 @@ def gameplay():
     # DAY ENDED
     day += 1
     t.sleep(2)
-    print("It's The End Of The Day! \n")
+    print("\n It's The End Of The Day! \n")
     print("= REMAINING INGREDIENTS =")
     print(f"{coffeebean}x Coffee Bean (g)")
     print(f"{water}x Water (Oz)")
@@ -386,11 +387,11 @@ def shop(): # CLEAR
                 if coins >= pr: # SUFFICIENT COINS
                     coins = coins - pr
                     if ans_s == '1':
-                        coffeebean +qn
+                        coffeebean +=qn
                     elif ans_s == '2':
-                        water +qn
+                        water +=qn
                     else:
-                        milk +qn
+                        milk +=qn
                     print("Payment Has Succeded!")
                     print(f"Total Coins: {coins}")
                     break
