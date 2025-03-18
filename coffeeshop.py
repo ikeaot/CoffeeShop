@@ -14,7 +14,7 @@ if day == 1:
 # MIMI'S DELAYED MESSAGES
 def msg(string):
     print(string)
-    t.sleep(1)
+    t.sleep(2.5)
 
 def tutorial():
     # NEEDED VARIABLE
