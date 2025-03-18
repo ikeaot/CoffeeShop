@@ -92,7 +92,6 @@ def tutorial():
         # CONPLETION
         msg("(😆) Mimi: You've completed your order!")
         
-        
         while True:
             msg("(😉) Mimi: Do you want to try again?")
             t.sleep(1)
@@ -242,7 +241,7 @@ def gameplay():
 
         if ans_g1 == 'y':
             st = t.monotonic() # START
-            dr = 5  # COUNTDOWN DURATION (30 seconds)
+            dr = 15  # COUNTDOWN DURATION
 
             while True:
                 # COUNTDOWN STARTS
@@ -250,7 +249,7 @@ def gameplay():
                 elapsed_t = current_t - st
 
                 # COUNTDOWN CHECK
-                if elapsed_t >= 15:
+                if elapsed_t >= dr:
                     msg("Time's up! The customer left!")
                     coins -= 1  # TIMEOUT PENALTY
                     x, y, z = 0, 0, 0
